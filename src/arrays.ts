@@ -54,12 +54,15 @@ export const removeDollars = (amounts: string[]): number[] => {
     return int_array;
 };
 
+import { fileURLToPath } from "url";
 /**
  * Consume an array of messages and return a new list of the messages. However, any
  * string that ends in "!" should be made uppercase. Also, remove any strings that end
  * in question marks ("?").
  */
+import { isQuestion } from "./functions";
 export const shoutIfExclaiming = (messages: string[]): string[] => {
+    const filtered_messages = messages.filter();
     return [];
 };
 
