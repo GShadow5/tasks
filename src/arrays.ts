@@ -54,7 +54,6 @@ export const removeDollars = (amounts: string[]): number[] => {
     return int_array;
 };
 
-import { fileURLToPath } from "url";
 /**
  * Consume an array of messages and return a new list of the messages. However, any
  * string that ends in "!" should be made uppercase. Also, remove any strings that end
@@ -62,8 +61,13 @@ import { fileURLToPath } from "url";
  */
 import { isQuestion } from "./functions";
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    const filtered_messages = messages.filter();
-    return [];
+    const filtered_messages = messages.filter(
+        (message: string) => !isQuestion(message)
+    );
+    const capitalized_messages = filtered_messages.map((message: string) =>
+        message[message.length - 1] === "!" ? message.toUpperCase() : message
+    );
+    return capitalized_messages;
 };
 
 /**
@@ -71,7 +75,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    return words.filter((word: string) => word.length < 4).length;
 }
 
 /**
@@ -80,7 +84,19 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) {
+        return true;
+    }
+    for (const col in colors) {
+        const isRGB =
+            (col.length === 3 && col.includes("red")) ||
+            (col.length === 4 && col.includes("blue")) ||
+            (col.length === 5 && col.includes("green"));
+        if (isRGB === false) {
+            return false;
+        }
+    }
+    return true;
 }
 
 /**
