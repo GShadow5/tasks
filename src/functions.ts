@@ -29,16 +29,7 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    // return message[-1] === "?"; doesn't work for some reason. It won't pass all the tests
-    // I figured out that it's because javascript doesn't support [-1] it has to be [arr.length - 1]. I'm dumb :)
-    if (!message.includes("?")) {
-        return false;
-    }
-    const qindex = message.lastIndexOf("?");
-    if (qindex === message.length - 1) {
-        return true;
-    }
-    return false;
+    return message[message.length - 1] === "?";
 }
 
 /**
