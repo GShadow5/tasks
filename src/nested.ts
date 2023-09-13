@@ -100,6 +100,7 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
+    // Tried everything under the sun, but the only thing I could get to work is the old fashioned for loop
     let out = "id,name,options,points,published";
     for (let i = 0; i < questions.length; i++) {
         const q = questions[i];
@@ -116,7 +117,14 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    return questions.map(
+        (question: Question): Answer => ({
+            questionId: question.id,
+            text: "",
+            submitted: false,
+            correct: false
+        })
+    );
 }
 
 /***
