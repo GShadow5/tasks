@@ -1,3 +1,4 @@
+import { bookEndList } from "./arrays";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
@@ -99,7 +100,16 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    let out = "id,name,options,points,published";
+    const strings = questions.map(
+        ({ id, name, options, points, published }): string =>
+            `${id},${name},${options.length},${points},${published}`
+    );
+    for (const s in strings) {
+        out = out + "\n" + s;
+    }
+
+    return out;
 }
 
 /**
