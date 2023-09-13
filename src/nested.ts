@@ -101,14 +101,12 @@ id,name,options,points,published
  */
 export function toCSV(questions: Question[]): string {
     let out = "id,name,options,points,published";
-    const strings = questions.map(
-        ({ id, name, options, points, published }): string =>
-            `${id},${name},${options.length},${points},${published}`
-    );
-    for (const s in strings) {
-        out = out + "\n" + s;
+    for (let i = 0; i < questions.length; i++) {
+        const q = questions[i];
+        out =
+            out +
+            `\n${q.id},${q.name},${q.options.length},${q.points},${q.published}`;
     }
-
     return out;
 }
 
