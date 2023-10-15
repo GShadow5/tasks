@@ -1,5 +1,7 @@
 /* eslint-disable indent */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { queries } from "@testing-library/react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { bookEndList } from "./arrays";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
