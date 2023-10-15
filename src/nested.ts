@@ -197,12 +197,12 @@ export function changeQuestionTypeById(
         (question: Question): Question =>
             question.id === targetId
                 ? {
-                      ...question,
-                      type: newQuestionType,
-                      options:
-                          newQuestionType === "multiple_choice_question"
-                              ? question.options
-                              : []
+                    ...question,
+                    type: newQuestionType,
+                    options:
+                        newQuestionType === "multiple_choice_question"
+                            ? question.options
+                            : []
                   }
                 : question
     );
