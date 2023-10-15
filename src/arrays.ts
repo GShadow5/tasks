@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -86,16 +87,16 @@ export function countShortWords(words: string[]): number {
 export function allRGB(colors: string[]): boolean {
     const isRGB = (col: string): number => {
         switch (col.length) {
-        case 0:
-            return 0;
-        case 3:
-            return col.includes("red") ? 0 : 1;
-        case 4:
-            return col.includes("blue") ? 0 : 1;
-        case 5:
-            return col.includes("green") ? 0 : 1;
-        default:
-            return 1;
+            case 0:
+                return 0;
+            case 3:
+                return col.includes("red") ? 0 : 1;
+            case 4:
+                return col.includes("blue") ? 0 : 1;
+            case 5:
+                return col.includes("green") ? 0 : 1;
+            default:
+                return 1;
         }
     };
     return colors.reduce(
