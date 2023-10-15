@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { queries } from "@testing-library/react";
 import { bookEndList } from "./arrays";
 import { Answer } from "./interfaces/answer";
@@ -197,12 +198,12 @@ export function changeQuestionTypeById(
         (question: Question): Question =>
             question.id === targetId
                 ? {
-                    ...question,
-                    type: newQuestionType,
-                    options:
-                        newQuestionType === "multiple_choice_question"
-                            ? question.options
-                            : []
+                      ...question,
+                      type: newQuestionType,
+                      options:
+                          newQuestionType === "multiple_choice_question"
+                              ? question.options
+                              : []
                   }
                 : question
     );
@@ -263,21 +264,3 @@ export function duplicateQuestionInArray(
     }
     return newQuestions;
 }
-
-/*
-Cruft
-/* No idea why this doesn't work. The lack of a step throug debugger is really slowing me down :(
-    const newQuestions = [...questions];
-    const question = questions.find(
-        (question: Question): boolean => question.id === targetId
-    );
-    if (question !== undefined) {
-        newQuestions.push(duplicateQuestion(newId, question));
-    }
-    
-    const newQuestions = [...questions];
-    for (let i = 0; i < newQuestions.length; i++) {
-        if (newQuestions[i].id === targetId) {
-            newQuestions.push(duplicateQuestion(newId, newQuestions[i]));
-        }
-    } */
