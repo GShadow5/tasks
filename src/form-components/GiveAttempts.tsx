@@ -5,6 +5,11 @@ export function GiveAttempts(): JSX.Element {
     const [attemptsRemaining, setAttemptsRemaining] = useState<number>(3);
     const [reqestedAttempts, setRequestedAttempts] = useState<number>(0);
 
+    function updateAttempts(event: React.ChangeEvent<HTMLInputElement>) {
+        const newAttempts = parseInt(event.target.value);
+        setRequestedAttempts(isNaN(newAttempts) ? 0 : newAttempts);
+    }
+
     return (
         <div>
             <h3>Give Attempts</h3>
@@ -14,9 +19,7 @@ export function GiveAttempts(): JSX.Element {
                 <Form.Control
                     type="number"
                     value={reqestedAttempts}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        setRequestedAttempts(parseInt(event.target.value))
-                    }
+                    onChange={updateAttempts}
                 />
             </Form.Group>
             <div>
